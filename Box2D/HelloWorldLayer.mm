@@ -17,12 +17,12 @@
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         // Create sprite and add it to the layer
-        _ball = [CCSprite spriteWithFile:@"ball.png" rect:CGRectMake(0, 0, 52, 52)];
+        _ball = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
         _ball.position = ccp(100, 300);
         [self addChild:_ball];
         
         // Create a world
-        b2Vec2 gravity = b2Vec2(0.0f, -8.0f);
+        b2Vec2 gravity = b2Vec2(0.0f, -6.0f);
         _world = new b2World(gravity);
         
         // Create edges around the entire screen
@@ -33,6 +33,15 @@
         b2EdgeShape groundEdge;
         b2FixtureDef boxShapeDef;
         boxShapeDef.shape = &groundEdge;
+        
+        // Standard method to create a button
+        CCMenuItem *jetMenuItem = [CCMenuItemImage
+                                    itemFromNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
+                                    target:self selector:@selector(jetButtonTapped:)];
+        jetMenuItem.position = ccp(70, 70);
+        CCMenu *jetMenu = [CCMenu menuWithItems:jetMenuItem, nil];
+        jetMenu.position = CGPointZero;
+        [self addChild:jetMenu];
         
         //wall definitions
         groundEdge.Set(b2Vec2(0,0), b2Vec2(winSize.width/PTM_RATIO, 0));
@@ -67,7 +76,6 @@
         _body->CreateFixture(&ballShapeDef);
         
         [self schedule:@selector(tick:)];
-        [self schedule:@selector(kick) interval:5.0];
         [self setTouchEnabled:YES];
         [self setAccelerometerEnabled:YES];
     }
@@ -88,15 +96,14 @@
     
 }
 
-- (void)kick {
-    b2Vec2 force = b2Vec2(30, 30);
-    _body->ApplyLinearImpulse(force,_body->GetPosition());
-}
+//Push Button for Jet
 
-- (void)ccTouchesBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    b2Vec2 force = b2Vec2(-30, 30);
+- (void)jetButtonTapped:(id)sender {
+    b2Vec2 force = b2Vec2(0, 10);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
 }
+
+
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     
