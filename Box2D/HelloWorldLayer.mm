@@ -38,10 +38,21 @@
         CCMenuItem *jetMenuItem = [CCMenuItemImage
                                     itemFromNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
                                     target:self selector:@selector(jetButtonTapped:)];
-        jetMenuItem.position = ccp(70, 70);
+        jetMenuItem.position = ccp(40, 40);
+        jetMenuItem.scale = 0.5;
         CCMenu *jetMenu = [CCMenu menuWithItems:jetMenuItem, nil];
         jetMenu.position = CGPointZero;
-        [self addChild:jetMenu];
+        [self addChild:jetMenu z:0];
+        
+        //Hoop Image
+        CCSprite *hoop = [CCSprite spriteWithFile:@"Basketball_Hoop.png"];
+        hoop.position = ccp(winSize.width/2, winSize.height/2);
+        [self addChild:hoop z:0];
+
+        //Hoop Image
+        CCSprite *background = [CCSprite spriteWithFile:@"Background.png"];
+        background.position = ccp(winSize.width/2, winSize.height/2);
+        [self addChild:background z:-1];
         
         //wall definitions
         groundEdge.Set(b2Vec2(0,0), b2Vec2(winSize.width/PTM_RATIO, 0));
@@ -99,7 +110,7 @@
 //Push Button for Jet
 
 - (void)jetButtonTapped:(id)sender {
-    b2Vec2 force = b2Vec2(0, 10);
+    b2Vec2 force = b2Vec2(3, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
 }
 
@@ -108,7 +119,7 @@
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     
     // Landscape left values
-    b2Vec2 gravity(acceleration.y * 30, -acceleration.x * 30);
+    b2Vec2 gravity(acceleration.x * 5, acceleration.y * 5);
     _world->SetGravity(gravity);
 }
 

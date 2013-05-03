@@ -10,7 +10,6 @@
 }
 
 + (id) scene;
-- (void)kick;
 
 
 @end
