@@ -5,11 +5,14 @@
 
 @interface HelloWorldLayer : CCLayer {
     b2World *_world;
+    
+    //Ball 1
     b2Body *_body;
-    b2Body *_block;
     CCSprite *_ball;
-    CCSprite *_blockSprite;
-    CCSprite *_hoopLeft;
+    
+    //Ball2
+    b2Body *_body2;
+    CCSprite *_ball2;
 }
 
 + (id) scene;

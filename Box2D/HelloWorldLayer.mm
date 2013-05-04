@@ -16,14 +16,8 @@
     if ((self=[super init])) {
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
-        //not currently using
-        // Create sprite for Hoop and add it to the layer
-        //_hoopLeft = [CCSprite spriteWithFile:@"Tennis.png" rect:CGRectMake(26, 26, 10, 10)];
-        //_hoopLeft.position = ccp(winSize.width/2, winSize.height/2);
-        //[self addChild:_hoopLeft];
-        
         //Create Walls Hoop & Buttons
-        
+        {
         // Create a world
         b2Vec2 gravity = b2Vec2(0.0f, -6.0f);
         _world = new b2World(gravity);
@@ -82,11 +76,8 @@
         CCSprite *hoop = [CCSprite spriteWithFile:@"Basketball_Hoop.png"];
         hoop.position = ccp(winSize.width/2, winSize.height/2);
         [self addChild:hoop z:1];
+        }
         
-        
-        
-        b2CircleShape hoopObj;
-        hoopObj.m_radius = 1.0/PTM_RATIO;
         
         // Create Basketball sprite and add it to the layer
         _ball = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
@@ -109,6 +100,28 @@
         ballShapeDef.friction = 0.2f;
         ballShapeDef.restitution = 0.4f;
         _body->CreateFixture(&ballShapeDef);
+        
+        // Create Basketball Two sprite and add it to the layer
+        _ball2 = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
+        _ball2.position = ccp(100, 300);
+        [self addChild:_ball2];
+        
+        // Create Basketball body shape and fixture
+        b2BodyDef ball2BodyDef;
+        ball2BodyDef.type = b2_dynamicBody;
+        ball2BodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
+        ball2BodyDef.userData = _ball2;
+        _body2 = _world->CreateBody(&ball2BodyDef);
+        
+        
+        
+        b2FixtureDef ball2ShapeDef;
+        ball2ShapeDef.shape = &circle;
+        ball2ShapeDef.density = 1.0f;
+        ball2ShapeDef.friction = 0.2f;
+        ball2ShapeDef.restitution = 0.4f;
+        _body2->CreateFixture(&ball2ShapeDef);
+
         
         [self schedule:@selector(tick:)];
         [self setTouchEnabled:YES];
@@ -134,15 +147,17 @@
 //Push Button for Jet
 
 - (void)jetButtonTapped:(id)sender {
-    b2Vec2 force = b2Vec2(-2, 5);
+    b2Vec2 force = b2Vec2(2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
+    _body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 
 //Push Button Right for Jet
 
 - (void)jetRightButtonTapped:(id)sender {
-    b2Vec2 force = b2Vec2(2, 5);
+    b2Vec2 force = b2Vec2(-2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
+    _body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
@@ -157,7 +172,7 @@
 - (void)dealloc {
     delete _world;
     _body = NULL;
-    _block = NULL;
+    _body2 = NULL;
     _world = NULL;
     [super dealloc];
 }
