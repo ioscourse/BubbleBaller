@@ -59,6 +59,7 @@
 		CA485D0417332F2100FB149D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485D0317332F2100FB149D /* Icon@2x.png */; };
 		CA6108571733421400A96CF3 /* Basketball-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6108561733421400A96CF3 /* Basketball-hd.png */; };
 		CA61085917335D0400A96CF3 /* Basketball_Hoop.png in Resources */ = {isa = PBXBuildFile; fileRef = CA61085817335D0400A96CF3 /* Basketball_Hoop.png */; };
+		CA7B9D231735ACC9007B42C4 /* GameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */; };
 		D385713E168D23FD0088D767 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385713D168D23FD0088D767 /* QuartzCore.framework */; };
 		D3857140168D23FD0088D767 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385713F168D23FD0088D767 /* OpenGLES.framework */; };
 		D3857142168D23FD0088D767 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3857141168D23FD0088D767 /* OpenAL.framework */; };
@@ -283,6 +284,8 @@
 		CA485D0317332F2100FB149D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		CA6108561733421400A96CF3 /* Basketball-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Basketball-hd.png"; path = "Resources/Basketball-hd.png"; sourceTree = "<group>"; };
 		CA61085817335D0400A96CF3 /* Basketball_Hoop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Basketball_Hoop.png; path = Resources/Basketball_Hoop.png; sourceTree = "<group>"; };
+		CA7B9D211735ACC9007B42C4 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameOverLayer.mm; sourceTree = "<group>"; };
 		D3857139168D23FD0088D767 /* BubbleBaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleBaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D385713D168D23FD0088D767 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D385713F168D23FD0088D767 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -718,6 +721,8 @@
 		D385714F168D23FD0088D767 /* Box2d */ = {
 			isa = PBXGroup;
 			children = (
+				CA7B9D211735ACC9007B42C4 /* GameOverLayer.h */,
+				CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */,
 				D3857369168D24000088D767 /* AppDelegate.h */,
 				D385736A168D24000088D767 /* AppDelegate.mm */,
 				D385736C168D24000088D767 /* HelloWorldLayer.h */,
@@ -1575,6 +1580,7 @@
 				D3857371168D24000088D767 /* IntroLayer.mm in Sources */,
 				D3857374168D24000088D767 /* GLES-Render.mm in Sources */,
 				CA3B66EF17320512009F65B8 /* CCViewController.m in Sources */,
+				CA7B9D231735ACC9007B42C4 /* GameOverLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

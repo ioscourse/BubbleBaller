@@ -1,4 +1,5 @@
 #import "HelloWorldLayer.h"
+#import "GameOverLayer.h"
 
 @implementation HelloWorldLayer
 
@@ -203,21 +204,23 @@
 }
 
 - (void)tick:(ccTime) dt {
-    
     _world->Step(dt, 10, 10);
-    _ball.visible=YES;
     for(b2Body *b = _world->GetBodyList(); b; b=b->GetNext()) {
         if (b->GetUserData() != NULL) {
-            if (CGRectIntersectsRect([ basketBottom boundingBox], [_ball boundingBox])) {
-                _ball.visible=NO;
-            }
-            
             CCSprite *sprite = (CCSprite *)b->GetUserData();
             sprite.position = ccp(b->GetPosition().x * PTM_RATIO,
                                   b->GetPosition().y * PTM_RATIO);
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
-        }
+            
+            
+            }
     }
+    
+    if (CGRectIntersectsRect([basketBottom boundingBox], [_ball boundingBox])) {
+        CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
+        [[CCDirector sharedDirector] replaceScene:gameOverScene];
+    }
+
     
 }
 
