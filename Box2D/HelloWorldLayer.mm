@@ -101,19 +101,41 @@
         ballShapeDef.restitution = 0.4f;
         _body->CreateFixture(&ballShapeDef);
         
+        // Create Hoop blocks sprite and add it to the layer
+        _basket = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(20, 20, 21, 21)];
+        _basket.position = ccp(100, 300);
+        [self addChild:_basket];
+        // Create hoop bottom shape and fixture
+        b2BodyDef hoopBottomBodyDef;
+        hoopBottomBodyDef.type = b2_staticBody;
+        hoopBottomBodyDef.position.Set(((winSize.width/2))/PTM_RATIO, 270/PTM_RATIO);
+        hoopBottomBodyDef.userData = _basket;
+        _basketBottom = _world->CreateBody(&hoopBottomBodyDef);
+        
+        b2PolygonShape hoopBottomShape;
+        hoopBottomShape.SetAsBox(1.0f, 0.1f);
+        
+        b2FixtureDef hoopBottomShapeDef;
+        hoopBottomShapeDef.shape = &hoopBottomShape;
+        hoopBottomShapeDef.density = 1.0f;
+        hoopBottomShapeDef.friction = 0.0f;
+        hoopBottomShapeDef.restitution = 0.0f;
+        _basketBottom->CreateFixture(&hoopBottomShapeDef);
+
+
+        
+        //
         // Create Basketball Two sprite and add it to the layer
         _ball2 = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
         _ball2.position = ccp(100, 300);
         [self addChild:_ball2];
         
-        // Create Basketball body shape and fixture
+        // Create Basketball two body shape and fixture
         b2BodyDef ball2BodyDef;
         ball2BodyDef.type = b2_dynamicBody;
         ball2BodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
         ball2BodyDef.userData = _ball2;
         _body2 = _world->CreateBody(&ball2BodyDef);
-        
-        
         
         b2FixtureDef ball2ShapeDef;
         ball2ShapeDef.shape = &circle;
@@ -121,7 +143,6 @@
         ball2ShapeDef.friction = 0.2f;
         ball2ShapeDef.restitution = 0.4f;
         _body2->CreateFixture(&ball2ShapeDef);
-
         
         [self schedule:@selector(tick:)];
         [self setTouchEnabled:YES];
@@ -174,6 +195,7 @@
     _body = NULL;
     _body2 = NULL;
     _world = NULL;
+    _basketBottom = NULL;
     [super dealloc];
 }
 
