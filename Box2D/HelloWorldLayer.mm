@@ -88,7 +88,7 @@
         // Create Basketball body shape and fixture
         b2BodyDef ballBodyDef;
         ballBodyDef.type = b2_dynamicBody;
-        ballBodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
+        ballBodyDef.position.Set(52/PTM_RATIO, 300/PTM_RATIO);
         ballBodyDef.userData = _ball;
         _body = _world->CreateBody(&ballBodyDef);
         
@@ -102,16 +102,16 @@
         ballShapeDef.restitution = 0.4f;
         _body->CreateFixture(&ballShapeDef);
         
-        // Create Hoop blocks sprite and add it to the layer
-        _basket = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 50, 10)];
-        _basket.position = ccp(100, 300);
-        [self addChild:_basket];
+        //========= Create Hoop blocks sprite and add it to the layer =========
+        basketBottom = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 50, 10)];
+        basketBottom.position = ccp(100, 300);
+        [self addChild:basketBottom];
         
-        // Create hoop bottom shape and fixture
+        //========= Create hoop bottom shape and fixture =========
         b2BodyDef hoopBottomBodyDef;
         hoopBottomBodyDef.type = b2_staticBody;
         hoopBottomBodyDef.position.Set(((winSize.width/2))/PTM_RATIO, 270/PTM_RATIO);
-        hoopBottomBodyDef.userData = _basket;
+        hoopBottomBodyDef.userData = basketBottom;
         _basketBottom = _world->CreateBody(&hoopBottomBodyDef);
         
         b2PolygonShape hoopBottomShape;
@@ -124,16 +124,16 @@
         hoopBottomShapeDef.restitution = 0.0f;
         _basketBottom->CreateFixture(&hoopBottomShapeDef);
         
-        // Create Hoop Left blocks sprite and add it to the layer
-        _basket = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
-        _basket.position = ccp(100, 300);
-        [self addChild:_basket];
+        //========= Create Hoop Left blocks sprite and add it to the layer =========
+        basketLeft = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
+        basketLeft.position = ccp(100, 300);
+        [self addChild:basketLeft];
         
-        // Create hoop Left shape and fixture
+        //========= Create hoop Left shape and fixture =========
         b2BodyDef hoopLeftBodyDef;
         hoopLeftBodyDef.type = b2_staticBody;
-        hoopLeftBodyDef.position.Set(((winSize.width/2)-30)/PTM_RATIO, 300/PTM_RATIO);
-        hoopLeftBodyDef.userData = _basket;
+        hoopLeftBodyDef.position.Set(((contentSize_.width/2)-30)/PTM_RATIO, 300/PTM_RATIO);
+        hoopLeftBodyDef.userData = basketLeft;
         _basketLeft = _world->CreateBody(&hoopLeftBodyDef);
         
         b2PolygonShape hoopLeftShape;
@@ -145,17 +145,17 @@
         hoopLeftShapeDef.friction = 0.2f;
         hoopLeftShapeDef.restitution = 0.0f;
         _basketLeft->CreateFixture(&hoopLeftShapeDef);
+         
+        //========= Create Hoop Right Blocks Sprite and add it to the layer =========
+        basketRight = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
+        basketRight.position = ccp(((contentSize_.width/2)+30), 300);
+        [self addChild:basketRight];
         
-        // Create Hoop Right blocks sprite and add it to the layer
-        _basket = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
-        _basket.position = ccp(100, 300);
-        [self addChild:_basket];
-        
-        // Create hoop Right shape and fixture
+        //========= Create hoop Right shape and fixture =========
         b2BodyDef hoopRightBodyDef;
         hoopRightBodyDef.type = b2_staticBody;
-        hoopRightBodyDef.position.Set(((winSize.width/2)+30)/PTM_RATIO, 300/PTM_RATIO);
-        hoopRightBodyDef.userData = _basket;
+        hoopRightBodyDef.position.Set(((contentSize_.width/2)+30)/PTM_RATIO, 300/PTM_RATIO);
+        hoopRightBodyDef.userData = _basketRight;
         _basketRight = _world->CreateBody(&hoopRightBodyDef);
         
         b2PolygonShape hoopRightShape;
@@ -168,27 +168,32 @@
         hoopRightShapeDef.restitution = 0.0f;
         _basketRight->CreateFixture(&hoopRightShapeDef);
 
-
+        //========= Create Basketball Two sprite and add it to the layer =========
+//        _ball2 = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
+//        _ball2.position = ccp(100, 300);
+//        [self addChild:_ball2];
+//        
+//        b2BodyDef ball2BodyDef;
+//        ball2BodyDef.type = b2_dynamicBody;
+//        ball2BodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
+//        ball2BodyDef.userData = _ball2;
+//        _body2 = _world->CreateBody(&ball2BodyDef);
+//        
+//        b2FixtureDef ball2ShapeDef;
+//        ball2ShapeDef.shape = &circle;
+//        ball2ShapeDef.density = 1.0f;
+//        ball2ShapeDef.friction = 0.2f;
+//        ball2ShapeDef.restitution = 0.4f;
+//        _body2->CreateFixture(&ball2ShapeDef);
         
-        //
-        // Create Basketball Two sprite and add it to the layer
-        _ball2 = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
-        _ball2.position = ccp(100, 300);
-        [self addChild:_ball2];
+        //========= Adding Collision for Ball and Goal Sprite =========
         
-        // Create Basketball two body shape and fixture
-        b2BodyDef ball2BodyDef;
-        ball2BodyDef.type = b2_dynamicBody;
-        ball2BodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
-        ball2BodyDef.userData = _ball2;
-        _body2 = _world->CreateBody(&ball2BodyDef);
+        _goalCollide = [[NSMutableArray alloc] init];
+        _ballCollide = [[NSMutableArray alloc] init];
         
-        b2FixtureDef ball2ShapeDef;
-        ball2ShapeDef.shape = &circle;
-        ball2ShapeDef.density = 1.0f;
-        ball2ShapeDef.friction = 0.2f;
-        ball2ShapeDef.restitution = 0.4f;
-        _body2->CreateFixture(&ball2ShapeDef);
+        
+        
+        //========= End Added Sprites and Bodies ============
         
         [self schedule:@selector(tick:)];
         [self setTouchEnabled:YES];
@@ -200,8 +205,13 @@
 - (void)tick:(ccTime) dt {
     
     _world->Step(dt, 10, 10);
+    _ball.visible=YES;
     for(b2Body *b = _world->GetBodyList(); b; b=b->GetNext()) {
         if (b->GetUserData() != NULL) {
+            if (CGRectIntersectsRect([ basketBottom boundingBox], [_ball boundingBox])) {
+                _ball.visible=NO;
+            }
+            
             CCSprite *sprite = (CCSprite *)b->GetUserData();
             sprite.position = ccp(b->GetPosition().x * PTM_RATIO,
                                   b->GetPosition().y * PTM_RATIO);
@@ -216,7 +226,7 @@
 - (void)jetButtonTapped:(id)sender {
     b2Vec2 force = b2Vec2(2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
-    _body2->ApplyLinearImpulse(force, _body2->GetPosition());
+    //_body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 
 //Push Button Right for Jet
@@ -224,7 +234,7 @@
 - (void)jetRightButtonTapped:(id)sender {
     b2Vec2 force = b2Vec2(-2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
-    _body2->ApplyLinearImpulse(force, _body2->GetPosition());
+   // _body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
@@ -237,11 +247,15 @@
 
 
 - (void)dealloc {
+    
     delete _world;
     _body = NULL;
-    _body2 = NULL;
+    //_body2 = NULL;
     _world = NULL;
     _basketBottom = NULL;
+    _basketLeft = NULL;
+    _basketRight = NULL;
+    
     [super dealloc];
 }
 
