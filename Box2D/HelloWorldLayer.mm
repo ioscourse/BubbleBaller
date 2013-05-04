@@ -73,8 +73,9 @@
         [self addChild:background z:-1];
         
         //Hoop Image
-        CCSprite *hoop = [CCSprite spriteWithFile:@"Basketball_Hoop.png"];
-        hoop.position = ccp(winSize.width/2, winSize.height/2);
+            CCSprite *hoop = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(0, 0, 70, 60)];
+            hoop.opacity = 175;
+            hoop.position = ccp(winSize.width/2, 295);
         [self addChild:hoop z:1];
         }
         
@@ -102,9 +103,10 @@
         _body->CreateFixture(&ballShapeDef);
         
         // Create Hoop blocks sprite and add it to the layer
-        _basket = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(20, 20, 21, 21)];
+        _basket = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 50, 10)];
         _basket.position = ccp(100, 300);
         [self addChild:_basket];
+        
         // Create hoop bottom shape and fixture
         b2BodyDef hoopBottomBodyDef;
         hoopBottomBodyDef.type = b2_staticBody;
@@ -113,14 +115,58 @@
         _basketBottom = _world->CreateBody(&hoopBottomBodyDef);
         
         b2PolygonShape hoopBottomShape;
-        hoopBottomShape.SetAsBox(1.0f, 0.1f);
+        hoopBottomShape.SetAsBox(0.7f, 0.1f);
         
         b2FixtureDef hoopBottomShapeDef;
         hoopBottomShapeDef.shape = &hoopBottomShape;
         hoopBottomShapeDef.density = 1.0f;
-        hoopBottomShapeDef.friction = 0.0f;
+        hoopBottomShapeDef.friction = 0.2f;
         hoopBottomShapeDef.restitution = 0.0f;
         _basketBottom->CreateFixture(&hoopBottomShapeDef);
+        
+        // Create Hoop Left blocks sprite and add it to the layer
+        _basket = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
+        _basket.position = ccp(100, 300);
+        [self addChild:_basket];
+        
+        // Create hoop Left shape and fixture
+        b2BodyDef hoopLeftBodyDef;
+        hoopLeftBodyDef.type = b2_staticBody;
+        hoopLeftBodyDef.position.Set(((winSize.width/2)-30)/PTM_RATIO, 300/PTM_RATIO);
+        hoopLeftBodyDef.userData = _basket;
+        _basketLeft = _world->CreateBody(&hoopLeftBodyDef);
+        
+        b2PolygonShape hoopLeftShape;
+        hoopLeftShape.SetAsBox(0.1f, 0.7f);
+        
+        b2FixtureDef hoopLeftShapeDef;
+        hoopLeftShapeDef.shape = &hoopLeftShape;
+        hoopLeftShapeDef.density = 1.0f;
+        hoopLeftShapeDef.friction = 0.2f;
+        hoopLeftShapeDef.restitution = 0.0f;
+        _basketLeft->CreateFixture(&hoopLeftShapeDef);
+        
+        // Create Hoop Right blocks sprite and add it to the layer
+        _basket = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
+        _basket.position = ccp(100, 300);
+        [self addChild:_basket];
+        
+        // Create hoop Right shape and fixture
+        b2BodyDef hoopRightBodyDef;
+        hoopRightBodyDef.type = b2_staticBody;
+        hoopRightBodyDef.position.Set(((winSize.width/2)+30)/PTM_RATIO, 300/PTM_RATIO);
+        hoopRightBodyDef.userData = _basket;
+        _basketRight = _world->CreateBody(&hoopRightBodyDef);
+        
+        b2PolygonShape hoopRightShape;
+        hoopRightShape.SetAsBox(0.1f, 0.7f);
+        
+        b2FixtureDef hoopRightShapeDef;
+        hoopRightShapeDef.shape = &hoopRightShape;
+        hoopRightShapeDef.density = 1.0f;
+        hoopRightShapeDef.friction = 0.2f;
+        hoopRightShapeDef.restitution = 0.0f;
+        _basketRight->CreateFixture(&hoopRightShapeDef);
 
 
         

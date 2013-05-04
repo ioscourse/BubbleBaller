@@ -16,7 +16,7 @@
     
     //Basket
     b2Body *_basketRight;
-    b2Body *_basketleft;
+    b2Body *_basketLeft;
     b2Body *_basketBottom;
     b2Fixture *_basketBottomFixture;
     CCSprite *_basket;
