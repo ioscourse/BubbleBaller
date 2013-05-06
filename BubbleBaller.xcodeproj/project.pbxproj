@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA248564173759EC00AD07C7 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = CA248563173759EC00AD07C7 /* transparent.png */; };
+		CA24856717375B1400AD07C7 /* Bubbles.aiff in Resources */ = {isa = PBXBuildFile; fileRef = CA24856517375B1400AD07C7 /* Bubbles.aiff */; };
+		CA24856817375B1400AD07C7 /* TinySeal.caf in Resources */ = {isa = PBXBuildFile; fileRef = CA24856617375B1400AD07C7 /* TinySeal.caf */; };
+		CA24856B173760EB00AD07C7 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = CA248569173760EB00AD07C7 /* Home.png */; };
+		CA24856C173760EB00AD07C7 /* Home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA24856A173760EB00AD07C7 /* Home@2x.png */; };
+		CA24856F1737633400AD07C7 /* btnReplay.png in Resources */ = {isa = PBXBuildFile; fileRef = CA24856D1737633400AD07C7 /* btnReplay.png */; };
+		CA2485701737633400AD07C7 /* btnReplay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA24856E1737633400AD07C7 /* btnReplay@2x.png */; };
 		CA3B66EF17320512009F65B8 /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B66EE17320512009F65B8 /* CCViewController.m */; };
 		CA3B66F117320810009F65B8 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3B66F017320810009F65B8 /* iPhone.storyboard */; };
 		CA485CA5173314B000FB149D /* Basketball.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485CA4173314B000FB149D /* Basketball.png */; };
@@ -62,6 +69,10 @@
 		CA7B9D231735ACC9007B42C4 /* GameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */; };
 		CA7B9D25173629E8007B42C4 /* Default-Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D24173629E5007B42C4 /* Default-Ball.png */; };
 		CA7B9D271736DFF7007B42C4 /* Default-Ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D261736DFF5007B42C4 /* Default-Ball@2x.png */; };
+		CA7B9D2F17374A63007B42C4 /* Hoop.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D2E17374A63007B42C4 /* Hoop.png */; };
+		CA7B9D3317374A78007B42C4 /* Hoop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D3017374A78007B42C4 /* Hoop@2x.png */; };
+		CA7B9D3417374A78007B42C4 /* HoopFront.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D3117374A78007B42C4 /* HoopFront.png */; };
+		CA7B9D3517374A78007B42C4 /* HoopFront@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D3217374A78007B42C4 /* HoopFront@2x.png */; };
 		D385713E168D23FD0088D767 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385713D168D23FD0088D767 /* QuartzCore.framework */; };
 		D3857140168D23FD0088D767 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385713F168D23FD0088D767 /* OpenGLES.framework */; };
 		D3857142168D23FD0088D767 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3857141168D23FD0088D767 /* OpenAL.framework */; };
@@ -233,6 +244,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA248563173759EC00AD07C7 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparent.png; path = Resources/transparent.png; sourceTree = "<group>"; };
+		CA24856517375B1400AD07C7 /* Bubbles.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = Bubbles.aiff; path = Resources/Bubbles.aiff; sourceTree = "<group>"; };
+		CA24856617375B1400AD07C7 /* TinySeal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TinySeal.caf; path = Resources/TinySeal.caf; sourceTree = "<group>"; };
+		CA248569173760EB00AD07C7 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Home.png; path = Resources/Home.png; sourceTree = "<group>"; };
+		CA24856A173760EB00AD07C7 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home@2x.png"; path = "Resources/Home@2x.png"; sourceTree = "<group>"; };
+		CA24856D1737633400AD07C7 /* btnReplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnReplay.png; path = Resources/btnReplay.png; sourceTree = "<group>"; };
+		CA24856E1737633400AD07C7 /* btnReplay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnReplay@2x.png"; path = "Resources/btnReplay@2x.png"; sourceTree = "<group>"; };
 		CA3B66ED17320512009F65B8 /* CCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCViewController.h; sourceTree = "<group>"; };
 		CA3B66EE17320512009F65B8 /* CCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
 		CA3B66F017320810009F65B8 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
@@ -290,6 +308,10 @@
 		CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GameOverLayer.mm; path = Box2D/GameOverLayer.mm; sourceTree = "<group>"; };
 		CA7B9D24173629E5007B42C4 /* Default-Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Ball.png"; path = "Resources/Default-Ball.png"; sourceTree = "<group>"; };
 		CA7B9D261736DFF5007B42C4 /* Default-Ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Ball@2x.png"; path = "Resources/Default-Ball@2x.png"; sourceTree = "<group>"; };
+		CA7B9D2E17374A63007B42C4 /* Hoop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hoop.png; path = Resources/Hoop.png; sourceTree = "<group>"; };
+		CA7B9D3017374A78007B42C4 /* Hoop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hoop@2x.png"; path = "Resources/Hoop@2x.png"; sourceTree = "<group>"; };
+		CA7B9D3117374A78007B42C4 /* HoopFront.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HoopFront.png; path = Resources/HoopFront.png; sourceTree = "<group>"; };
+		CA7B9D3217374A78007B42C4 /* HoopFront@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HoopFront@2x.png"; path = "Resources/HoopFront@2x.png"; sourceTree = "<group>"; };
 		D3857139168D23FD0088D767 /* BubbleBaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleBaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D385713D168D23FD0088D767 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D385713F168D23FD0088D767 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -754,6 +776,17 @@
 		D3857150168D23FD0088D767 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CA24856D1737633400AD07C7 /* btnReplay.png */,
+				CA24856E1737633400AD07C7 /* btnReplay@2x.png */,
+				CA248569173760EB00AD07C7 /* Home.png */,
+				CA24856A173760EB00AD07C7 /* Home@2x.png */,
+				CA24856517375B1400AD07C7 /* Bubbles.aiff */,
+				CA24856617375B1400AD07C7 /* TinySeal.caf */,
+				CA248563173759EC00AD07C7 /* transparent.png */,
+				CA7B9D3017374A78007B42C4 /* Hoop@2x.png */,
+				CA7B9D3117374A78007B42C4 /* HoopFront.png */,
+				CA7B9D3217374A78007B42C4 /* HoopFront@2x.png */,
+				CA7B9D2E17374A63007B42C4 /* Hoop.png */,
 				CA7B9D261736DFF5007B42C4 /* Default-Ball@2x.png */,
 				CA7B9D24173629E5007B42C4 /* Default-Ball.png */,
 				CA61085817335D0400A96CF3 /* Basketball_Hoop.png */,
@@ -1430,6 +1463,17 @@
 				CA61085917335D0400A96CF3 /* Basketball_Hoop.png in Resources */,
 				CA7B9D25173629E8007B42C4 /* Default-Ball.png in Resources */,
 				CA7B9D271736DFF7007B42C4 /* Default-Ball@2x.png in Resources */,
+				CA7B9D2F17374A63007B42C4 /* Hoop.png in Resources */,
+				CA7B9D3317374A78007B42C4 /* Hoop@2x.png in Resources */,
+				CA7B9D3417374A78007B42C4 /* HoopFront.png in Resources */,
+				CA7B9D3517374A78007B42C4 /* HoopFront@2x.png in Resources */,
+				CA248564173759EC00AD07C7 /* transparent.png in Resources */,
+				CA24856717375B1400AD07C7 /* Bubbles.aiff in Resources */,
+				CA24856817375B1400AD07C7 /* TinySeal.caf in Resources */,
+				CA24856B173760EB00AD07C7 /* Home.png in Resources */,
+				CA24856C173760EB00AD07C7 /* Home@2x.png in Resources */,
+				CA24856F1737633400AD07C7 /* btnReplay.png in Resources */,
+				CA2485701737633400AD07C7 /* btnReplay@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

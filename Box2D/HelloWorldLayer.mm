@@ -1,5 +1,6 @@
 #import "HelloWorldLayer.h"
 #import "GameOverLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation HelloWorldLayer
 
@@ -85,32 +86,36 @@
             [self addChild:background z:-1];
             
             //Hoop Image
-            CCSprite *hoop = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(0, 0, 70, 60)];
-            hoop.opacity = 175;
+            CCSprite *hoop = [CCSprite spriteWithFile:@"Hoop.png" rect:CGRectMake(0, 0, 150, 150)];
             hoop.position = ccp(winSize.width/2, 295);
-            [self addChild:hoop z:1];
+            [self addChild:hoop z:0];
+            
+            //Hoop Front Image
+            CCSprite *hoopFront = [CCSprite spriteWithFile:@"HoopFront.png" rect:CGRectMake(0, 0, 150, 56)];
+            hoopFront.position = ccp(winSize.width/2, 250);
+            [self addChild:hoopFront z:5];
         }
         
         
         // Create Goal sprite and add it to the layer
-        goal = [CCSprite spriteWithFile:@"" rect:CGRectMake(25, 25, 1, 1)];
-        goal.position = ccp(winSize.width/2, 276);
+        goal = [CCSprite spriteWithFile:@"transparent.png" rect:CGRectMake(25, 25, 1, 1)];
+        goal.position = ccp(winSize.width/2, 250);
         [self addChild:goal z:2];
         
         // Create Basketball sprite and add it to the layer
-        _ball = [CCSprite spriteWithFile:@"Default-Ball.png" rect:CGRectMake(0, 0, 50, 50)];
-        _ball.position = ccp(50, 300);
+        _ball = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
+        _ball.position = ccp(52, 300);
         [self addChild:_ball];
         
         // Create Basketball body shape and fixture
         b2BodyDef ballBodyDef;
         ballBodyDef.type = b2_dynamicBody;
-        ballBodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
+        ballBodyDef.position.Set(52/PTM_RATIO, 300/PTM_RATIO);
         ballBodyDef.userData = _ball;
         _body = _world->CreateBody(&ballBodyDef);
         
         b2CircleShape circle;
-        circle.m_radius = 25.0/PTM_RATIO;
+        circle.m_radius = 26.0/PTM_RATIO;
         
         b2FixtureDef ballShapeDef;
         ballShapeDef.shape = &circle;
@@ -119,20 +124,20 @@
         ballShapeDef.restitution = 0.4f;
         _body->CreateFixture(&ballShapeDef);
         
-        //========= Create Hoop blocks sprite and add it to the layer =========
-        basketBottom = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 50, 10)];
-        basketBottom.position = ccp(100, 300);
+        //========= Create Hoop left bottom sprite and add it to the layer =========
+        basketBottom = [CCSprite spriteWithFile:@"transparent.png" rect:CGRectMake(20, 20, 5, 5)];
+        basketBottom.position = ccp(((winSize.width/2)-20), 240);
         [self addChild:basketBottom];
         
-        //========= Create hoop bottom shape and fixture =========
+        //========= Create hoop left bottom shape and fixture =========
         b2BodyDef hoopBottomBodyDef;
         hoopBottomBodyDef.type = b2_staticBody;
-        hoopBottomBodyDef.position.Set(((winSize.width/2))/PTM_RATIO, 270/PTM_RATIO);
+        hoopBottomBodyDef.position.Set(((winSize.width/2)-20)/PTM_RATIO, 240/PTM_RATIO);
         hoopBottomBodyDef.userData = basketBottom;
         _basketBottom = _world->CreateBody(&hoopBottomBodyDef);
         
         b2PolygonShape hoopBottomShape;
-        hoopBottomShape.SetAsBox(0.7f, 0.1f);
+        hoopBottomShape.SetAsBox(0.1f, 0.1f);
         
         b2FixtureDef hoopBottomShapeDef;
         hoopBottomShapeDef.shape = &hoopBottomShape;
@@ -141,20 +146,42 @@
         hoopBottomShapeDef.restitution = 0.0f;
         _basketBottom->CreateFixture(&hoopBottomShapeDef);
         
+        //========= Create Hoop right bottom sprite and add it to the layer =========
+        basketRightBottom = [CCSprite spriteWithFile:@"transparent.png" rect:CGRectMake(20, 20, 5, 5)];
+        basketRightBottom.position = ccp(((winSize.width/2)+20), 240);
+        [self addChild:basketRightBottom];
+        
+        //========= Create hoop right bottom shape and fixture =========
+        b2BodyDef hoopRightBottomBodyDef;
+        hoopRightBottomBodyDef.type = b2_staticBody;
+        hoopRightBottomBodyDef.position.Set(((winSize.width/2)+20)/PTM_RATIO, 240/PTM_RATIO);
+        hoopRightBottomBodyDef.userData = basketBottom;
+        _basketRightBottom = _world->CreateBody(&hoopRightBottomBodyDef);
+        
+        b2PolygonShape hoopRightBottomShape;
+        hoopRightBottomShape.SetAsBox(0.1f, 0.1f);
+        
+        b2FixtureDef hoopRightBottomShapeDef;
+        hoopRightBottomShapeDef.shape = &hoopBottomShape;
+        hoopRightBottomShapeDef.density = 1.0f;
+        hoopRightBottomShapeDef.friction = 0.2f;
+        hoopRightBottomShapeDef.restitution = 0.0f;
+        _basketRightBottom->CreateFixture(&hoopRightBottomShapeDef);
+        
         //========= Create Hoop Left blocks sprite and add it to the layer =========
-        basketLeft = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
-        basketLeft.position = ccp(100, 300);
+        basketLeft = [CCSprite spriteWithFile:@"transparent.png" rect:CGRectMake(20, 20, 5, 5)];
+        basketLeft.position = ccp(100, 275);
         [self addChild:basketLeft];
         
         //========= Create hoop Left shape and fixture =========
         b2BodyDef hoopLeftBodyDef;
         hoopLeftBodyDef.type = b2_staticBody;
-        hoopLeftBodyDef.position.Set(((contentSize_.width/2)-30)/PTM_RATIO, 300/PTM_RATIO);
+        hoopLeftBodyDef.position.Set(((contentSize_.width/2)-30)/PTM_RATIO, 275/PTM_RATIO);
         hoopLeftBodyDef.userData = basketLeft;
         _basketLeft = _world->CreateBody(&hoopLeftBodyDef);
         
         b2PolygonShape hoopLeftShape;
-        hoopLeftShape.SetAsBox(0.1f, 0.7f);
+        hoopLeftShape.SetAsBox(0.1f, 0.1f);
         
         b2FixtureDef hoopLeftShapeDef;
         hoopLeftShapeDef.shape = &hoopLeftShape;
@@ -164,19 +191,19 @@
         _basketLeft->CreateFixture(&hoopLeftShapeDef);
         
         //========= Create Hoop Right Blocks Sprite and add it to the layer =========
-        basketRight = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
-        basketRight.position = ccp(((contentSize_.width/2)+30), 300);
+        basketRight = [CCSprite spriteWithFile:@"transparent.png" rect:CGRectMake(20, 20, 5, 5)];
+        basketRight.position = ccp(((contentSize_.width/2)+30), 275);
         [self addChild:basketRight];
         
         //========= Create hoop Right shape and fixture =========
         b2BodyDef hoopRightBodyDef;
         hoopRightBodyDef.type = b2_staticBody;
-        hoopRightBodyDef.position.Set(((contentSize_.width/2)+30)/PTM_RATIO, 300/PTM_RATIO);
+        hoopRightBodyDef.position.Set(((contentSize_.width/2)+30)/PTM_RATIO, 275/PTM_RATIO);
         hoopRightBodyDef.userData = _basketRight;
         _basketRight = _world->CreateBody(&hoopRightBodyDef);
         
         b2PolygonShape hoopRightShape;
-        hoopRightShape.SetAsBox(0.1f, 0.7f);
+        hoopRightShape.SetAsBox(0.1f, 0.1f);
         
         b2FixtureDef hoopRightShapeDef;
         hoopRightShapeDef.shape = &hoopRightShape;
@@ -215,6 +242,7 @@
         [self schedule:@selector(tick:)];
         [self setTouchEnabled:YES];
         [self setAccelerometerEnabled:YES];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"TinySeal.caf" loop:YES];
     }
     return self;
 }
@@ -246,6 +274,7 @@
 - (void)jetButtonTapped:(id)sender {
     b2Vec2 force = b2Vec2(2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
+    [[SimpleAudioEngine sharedEngine] playEffect:@"Bubbles.aiff"];
     //_body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 
@@ -254,6 +283,7 @@
 - (void)jetRightButtonTapped:(id)sender {
     b2Vec2 force = b2Vec2(-2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
+    [[SimpleAudioEngine sharedEngine] playEffect:@"Bubbles.aiff"];
     // _body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 

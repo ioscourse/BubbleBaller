@@ -22,11 +22,13 @@
     b2Body *_basketRight;
     b2Body *_basketLeft;
     b2Body *_basketBottom;
+    b2Body *_basketRightBottom;
     
     //========= Basket Edges Sprite=========
     CCSprite *basketRight;
     CCSprite *basketLeft;
     CCSprite *basketBottom;
+    CCSprite *basketRightBottom;
     
     //========= Collision arrays: Goal and Ball =========
     NSMutableArray *_goalCollide;

@@ -88,15 +88,15 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBb-5B-7qM">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="crb-lx-rR4"/>
-                                    <constraint firstAttribute="width" constant="73" id="mmm-lQ-KFl"/>
+                                    <constraint firstAttribute="width" constant="45" id="acf-oT-WAf"/>
+                                    <constraint firstAttribute="height" constant="45" id="hyq-IJ-l94"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="btnCircle.png">
+                                <state key="normal" image="Home.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted" image="btnCircleActive.png">
+                                <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -106,8 +106,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EBb-5B-7qM" firstAttribute="top" secondItem="XSn-Bm-957" secondAttribute="top" constant="20" symbolic="YES" type="default" id="UUG-lv-FQW"/>
-                            <constraint firstItem="EBb-5B-7qM" firstAttribute="leading" secondItem="XSn-Bm-957" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bs1-Z4-j99"/>
+                            <constraint firstItem="EBb-5B-7qM" firstAttribute="leading" secondItem="XSn-Bm-957" secondAttribute="leading" constant="8" id="gJW-sq-Uqb"/>
+                            <constraint firstItem="EBb-5B-7qM" firstAttribute="top" secondItem="XSn-Bm-957" secondAttribute="top" constant="8" id="jXg-Yh-ziY"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -118,8 +118,7 @@
     </scenes>
     <resources>
         <image name="Background-568h@2x.png" width="640" height="1136"/>
-        <image name="btnCircle.png" width="132" height="133"/>
-        <image name="btnCircleActive.png" width="132" height="133"/>
+        <image name="Home.png" width="103" height="104"/>
         <image name="btnExit-Iphone@2x.png" width="540" height="104"/>
         <image name="btnExitActive-Iphone@2x.png" width="542" height="106"/>
         <image name="btnPlay-Iphone@2x.png" width="542" height="105"/>
@@ -127,6 +126,14 @@
         <image name="btnSettings-Iphone@2x.png" width="541" height="104"/>
         <image name="btnSettingsActive-Iphone@2x.png" width="542" height="106"/>
     </resources>
+    <classes>
+        <class className="CCViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
