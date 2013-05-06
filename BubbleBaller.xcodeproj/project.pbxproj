@@ -60,6 +60,8 @@
 		CA6108571733421400A96CF3 /* Basketball-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6108561733421400A96CF3 /* Basketball-hd.png */; };
 		CA61085917335D0400A96CF3 /* Basketball_Hoop.png in Resources */ = {isa = PBXBuildFile; fileRef = CA61085817335D0400A96CF3 /* Basketball_Hoop.png */; };
 		CA7B9D231735ACC9007B42C4 /* GameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */; };
+		CA7B9D25173629E8007B42C4 /* Default-Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D24173629E5007B42C4 /* Default-Ball.png */; };
+		CA7B9D271736DFF7007B42C4 /* Default-Ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B9D261736DFF5007B42C4 /* Default-Ball@2x.png */; };
 		D385713E168D23FD0088D767 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385713D168D23FD0088D767 /* QuartzCore.framework */; };
 		D3857140168D23FD0088D767 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D385713F168D23FD0088D767 /* OpenGLES.framework */; };
 		D3857142168D23FD0088D767 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3857141168D23FD0088D767 /* OpenAL.framework */; };
@@ -284,8 +286,10 @@
 		CA485D0317332F2100FB149D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		CA6108561733421400A96CF3 /* Basketball-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Basketball-hd.png"; path = "Resources/Basketball-hd.png"; sourceTree = "<group>"; };
 		CA61085817335D0400A96CF3 /* Basketball_Hoop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Basketball_Hoop.png; path = Resources/Basketball_Hoop.png; sourceTree = "<group>"; };
-		CA7B9D211735ACC9007B42C4 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
-		CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameOverLayer.mm; sourceTree = "<group>"; };
+		CA7B9D211735ACC9007B42C4 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverLayer.h; path = Box2D/GameOverLayer.h; sourceTree = "<group>"; };
+		CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GameOverLayer.mm; path = Box2D/GameOverLayer.mm; sourceTree = "<group>"; };
+		CA7B9D24173629E5007B42C4 /* Default-Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Ball.png"; path = "Resources/Default-Ball.png"; sourceTree = "<group>"; };
+		CA7B9D261736DFF5007B42C4 /* Default-Ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Ball@2x.png"; path = "Resources/Default-Ball@2x.png"; sourceTree = "<group>"; };
 		D3857139168D23FD0088D767 /* BubbleBaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleBaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D385713D168D23FD0088D767 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D385713F168D23FD0088D767 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -679,6 +683,15 @@
 			name = CCViewController;
 			sourceTree = "<group>";
 		};
+		CA7B9D2D173701FA007B42C4 /* GameOverLayer */ = {
+			isa = PBXGroup;
+			children = (
+				CA7B9D211735ACC9007B42C4 /* GameOverLayer.h */,
+				CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */,
+			);
+			name = GameOverLayer;
+			sourceTree = "<group>";
+		};
 		D385712E168D23FD0088D767 = {
 			isa = PBXGroup;
 			children = (
@@ -688,6 +701,7 @@
 				CA485CFC17332EC700FB149D /* Default@2x.png */,
 				CA485CFA17332EB700FB149D /* Default.png */,
 				CA3B66EC173204C4009F65B8 /* CCViewController */,
+				CA7B9D2D173701FA007B42C4 /* GameOverLayer */,
 				D385714F168D23FD0088D767 /* Box2d */,
 				D385713C168D23FD0088D767 /* Frameworks */,
 				D385713A168D23FD0088D767 /* Products */,
@@ -721,8 +735,6 @@
 		D385714F168D23FD0088D767 /* Box2d */ = {
 			isa = PBXGroup;
 			children = (
-				CA7B9D211735ACC9007B42C4 /* GameOverLayer.h */,
-				CA7B9D221735ACC9007B42C4 /* GameOverLayer.mm */,
 				D3857369168D24000088D767 /* AppDelegate.h */,
 				D385736A168D24000088D767 /* AppDelegate.mm */,
 				D385736C168D24000088D767 /* HelloWorldLayer.h */,
@@ -742,6 +754,8 @@
 		D3857150168D23FD0088D767 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CA7B9D261736DFF5007B42C4 /* Default-Ball@2x.png */,
+				CA7B9D24173629E5007B42C4 /* Default-Ball.png */,
 				CA61085817335D0400A96CF3 /* Basketball_Hoop.png */,
 				CA6108561733421400A96CF3 /* Basketball-hd.png */,
 				CA485CF617332EA100FB149D /* Default-Portrait.png */,
@@ -1414,6 +1428,8 @@
 				CA485D0417332F2100FB149D /* Icon@2x.png in Resources */,
 				CA6108571733421400A96CF3 /* Basketball-hd.png in Resources */,
 				CA61085917335D0400A96CF3 /* Basketball_Hoop.png in Resources */,
+				CA7B9D25173629E8007B42C4 /* Default-Ball.png in Resources */,
+				CA7B9D271736DFF7007B42C4 /* Default-Ball@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

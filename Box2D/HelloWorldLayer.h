@@ -6,6 +6,10 @@
 @interface HelloWorldLayer : CCLayer {
     b2World *_world;
     
+    //========= Goal ======
+    
+    CCSprite *goal;
+    
     //========= Ball 1 =========
     b2Body *_body;
     CCSprite *_ball;

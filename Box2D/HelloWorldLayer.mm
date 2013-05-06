@@ -15,86 +15,102 @@
 - (id)init {
     
     if ((self=[super init])) {
+        
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         //Create Walls Hoop & Buttons
         {
-        // Create a world
-        b2Vec2 gravity = b2Vec2(0.0f, -6.0f);
-        _world = new b2World(gravity);
-        
-        // Create edges around the entire screen
-        b2BodyDef groundBodyDef;
-        groundBodyDef.position.Set(0,0);
-        
-        b2Body *groundBody = _world->CreateBody(&groundBodyDef);
-        b2EdgeShape groundEdge;
-        b2FixtureDef boxShapeDef;
-        boxShapeDef.shape = &groundEdge;
-        
-        //wall definitions
-        groundEdge.Set(b2Vec2(0,0), b2Vec2(winSize.width/PTM_RATIO, 0));
-        groundBody->CreateFixture(&boxShapeDef);
-        
-        groundEdge.Set(b2Vec2(0,0), b2Vec2(0,winSize.height/PTM_RATIO));
-        groundBody->CreateFixture(&boxShapeDef);
-        
-        groundEdge.Set(b2Vec2(0, winSize.height/PTM_RATIO),
-                       b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO));
-        groundBody->CreateFixture(&boxShapeDef);
-        
-        groundEdge.Set(b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO),
-                       b2Vec2(winSize.width/PTM_RATIO, 0));
-        groundBody->CreateFixture(&boxShapeDef);
-        
-        
-        // Standard method to create a button (left)
-        CCMenuItem *jetMenuItem = [CCMenuItemImage
-                                   itemFromNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
-                                   target:self selector:@selector(jetButtonTapped:)];
-        jetMenuItem.position = ccp(40, 40);
-        jetMenuItem.scale = 0.5;
-        CCMenu *jetMenu = [CCMenu menuWithItems:jetMenuItem, nil];
-        jetMenu.position = CGPointZero;
-        [self addChild:jetMenu z:0];
-        
-        // Standard method to create a button (right)
-        CCMenuItem *jetRightMenuItem = [CCMenuItemImage
-                                        itemFromNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
-                                        target:self selector:@selector(jetRightButtonTapped:)];
-        jetRightMenuItem.position = ccp(winSize.width -40, 40);
-        jetRightMenuItem.scale = 0.5;
-        CCMenu *jetRightMenu = [CCMenu menuWithItems:jetRightMenuItem, nil];
-        jetRightMenu.position = CGPointZero;
-        [self addChild:jetRightMenu z:0];
-        
-        //Background Image
-        CCSprite *background = [CCSprite spriteWithFile:@"Background.png"];
-        background.position = ccp(winSize.width/2, winSize.height/2);
-        [self addChild:background z:-1];
-        
-        //Hoop Image
+            // Create a world
+            b2Vec2 gravity = b2Vec2(0.0f, -6.0f);
+            _world = new b2World(gravity);
+            
+            // Create edges around the entire screen
+            b2BodyDef groundBodyDef;
+            groundBodyDef.position.Set(0,0);
+            
+            b2Body *groundBody = _world->CreateBody(&groundBodyDef);
+            b2EdgeShape groundEdge;
+            b2FixtureDef boxShapeDef;
+            boxShapeDef.shape = &groundEdge;
+            
+            //wall definitions
+            groundEdge.Set(b2Vec2(0,0), b2Vec2(winSize.width/PTM_RATIO, 0));
+            groundBody->CreateFixture(&boxShapeDef);
+            
+            groundEdge.Set(b2Vec2(0,0), b2Vec2(0,winSize.height/PTM_RATIO));
+            groundBody->CreateFixture(&boxShapeDef);
+            
+            groundEdge.Set(b2Vec2(0, winSize.height/PTM_RATIO),
+                           b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO));
+            groundBody->CreateFixture(&boxShapeDef);
+            
+            groundEdge.Set(b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO),
+                           b2Vec2(winSize.width/PTM_RATIO, 0));
+            groundBody->CreateFixture(&boxShapeDef);
+            
+            
+            // Standard method to create a button (left)
+            CCMenuItem *jetMenuItem = [CCMenuItemImage
+                                       itemWithNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
+                                       target:self selector:@selector(jetButtonTapped:)];
+            jetMenuItem.position = ccp(40, 40);
+            jetMenuItem.scale = 0.5;
+            CCMenu *jetMenu = [CCMenu menuWithItems:jetMenuItem, nil];
+            jetMenu.position = CGPointZero;
+            [self addChild:jetMenu z:0];
+            
+            // Standard method to create a button (right)
+            CCMenuItem *jetRightMenuItem = [CCMenuItemImage
+                                            itemWithNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
+                                            target:self selector:@selector(jetRightButtonTapped:)];
+            jetRightMenuItem.position = ccp(winSize.width -40, 40);
+            jetRightMenuItem.scale = 0.5;
+            CCMenu *jetRightMenu = [CCMenu menuWithItems:jetRightMenuItem, nil];
+            jetRightMenu.position = CGPointZero;
+            [self addChild:jetRightMenu z:0];
+            
+            //Toggle Pause/Play
+            CCMenuItem *toggleItem = [CCMenuItemImage
+                                       itemWithNormalImage:@"btnPause.png" selectedImage:@"btnPause.png"
+                                       target:self selector:@selector(toggleTapped:)];
+            toggleItem.position = ccp((winSize.width-30), (winSize.height-30));
+            toggleItem.scale = 0.5;
+            CCMenu *toggleMenu = [CCMenu menuWithItems:toggleItem, nil];
+            toggleMenu.position = CGPointZero;
+            [self addChild:toggleMenu z:0];
+            
+            //Background Image
+            CCSprite *background = [CCSprite spriteWithFile:@"Background.png"];
+            background.position = ccp(winSize.width/2, winSize.height/2);
+            [self addChild:background z:-1];
+            
+            //Hoop Image
             CCSprite *hoop = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(0, 0, 70, 60)];
             hoop.opacity = 175;
             hoop.position = ccp(winSize.width/2, 295);
-        [self addChild:hoop z:1];
+            [self addChild:hoop z:1];
         }
         
         
+        // Create Goal sprite and add it to the layer
+        goal = [CCSprite spriteWithFile:@"" rect:CGRectMake(25, 25, 1, 1)];
+        goal.position = ccp(winSize.width/2, 276);
+        [self addChild:goal z:2];
+        
         // Create Basketball sprite and add it to the layer
-        _ball = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
-        _ball.position = ccp(100, 300);
+        _ball = [CCSprite spriteWithFile:@"Default-Ball.png" rect:CGRectMake(0, 0, 50, 50)];
+        _ball.position = ccp(50, 300);
         [self addChild:_ball];
         
         // Create Basketball body shape and fixture
         b2BodyDef ballBodyDef;
         ballBodyDef.type = b2_dynamicBody;
-        ballBodyDef.position.Set(52/PTM_RATIO, 300/PTM_RATIO);
+        ballBodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
         ballBodyDef.userData = _ball;
         _body = _world->CreateBody(&ballBodyDef);
         
         b2CircleShape circle;
-        circle.m_radius = 26.0/PTM_RATIO;
+        circle.m_radius = 25.0/PTM_RATIO;
         
         b2FixtureDef ballShapeDef;
         ballShapeDef.shape = &circle;
@@ -146,7 +162,7 @@
         hoopLeftShapeDef.friction = 0.2f;
         hoopLeftShapeDef.restitution = 0.0f;
         _basketLeft->CreateFixture(&hoopLeftShapeDef);
-         
+        
         //========= Create Hoop Right Blocks Sprite and add it to the layer =========
         basketRight = [CCSprite spriteWithFile:@"Background.png" rect:CGRectMake(20, 20, 10, 50)];
         basketRight.position = ccp(((contentSize_.width/2)+30), 300);
@@ -168,24 +184,24 @@
         hoopRightShapeDef.friction = 0.2f;
         hoopRightShapeDef.restitution = 0.0f;
         _basketRight->CreateFixture(&hoopRightShapeDef);
-
+        
         //========= Create Basketball Two sprite and add it to the layer =========
-//        _ball2 = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
-//        _ball2.position = ccp(100, 300);
-//        [self addChild:_ball2];
-//        
-//        b2BodyDef ball2BodyDef;
-//        ball2BodyDef.type = b2_dynamicBody;
-//        ball2BodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
-//        ball2BodyDef.userData = _ball2;
-//        _body2 = _world->CreateBody(&ball2BodyDef);
-//        
-//        b2FixtureDef ball2ShapeDef;
-//        ball2ShapeDef.shape = &circle;
-//        ball2ShapeDef.density = 1.0f;
-//        ball2ShapeDef.friction = 0.2f;
-//        ball2ShapeDef.restitution = 0.4f;
-//        _body2->CreateFixture(&ball2ShapeDef);
+        //        _ball2 = [CCSprite spriteWithFile:@"Basketball.png" rect:CGRectMake(0, 0, 52, 52)];
+        //        _ball2.position = ccp(100, 300);
+        //        [self addChild:_ball2];
+        //
+        //        b2BodyDef ball2BodyDef;
+        //        ball2BodyDef.type = b2_dynamicBody;
+        //        ball2BodyDef.position.Set(50/PTM_RATIO, 300/PTM_RATIO);
+        //        ball2BodyDef.userData = _ball2;
+        //        _body2 = _world->CreateBody(&ball2BodyDef);
+        //
+        //        b2FixtureDef ball2ShapeDef;
+        //        ball2ShapeDef.shape = &circle;
+        //        ball2ShapeDef.density = 1.0f;
+        //        ball2ShapeDef.friction = 0.2f;
+        //        ball2ShapeDef.restitution = 0.4f;
+        //        _body2->CreateFixture(&ball2ShapeDef);
         
         //========= Adding Collision for Ball and Goal Sprite =========
         
@@ -213,16 +229,17 @@
             sprite.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
             
             
-            }
+        }
     }
     
-    if (CGRectIntersectsRect([basketBottom boundingBox], [_ball boundingBox])) {
+    if (CGRectIntersectsRect([goal boundingBox], [_ball boundingBox])) {
         CCScene *gameOverScene = [GameOverLayer sceneWithWon:YES];
         [[CCDirector sharedDirector] replaceScene:gameOverScene];
     }
-
+    
     
 }
+
 
 //Push Button for Jet
 
@@ -237,8 +254,25 @@
 - (void)jetRightButtonTapped:(id)sender {
     b2Vec2 force = b2Vec2(-2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
-   // _body2->ApplyLinearImpulse(force, _body2->GetPosition());
+    // _body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
+
+//Pause Button
+
+- (void)toggleTapped:(id)sender
+
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Paused" message:@"Press the button to..." delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:nil];
+    [alert show];
+    [[CCDirector sharedDirector] pause];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+	[[CCDirector sharedDirector] resume];
+    
+}
+
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     

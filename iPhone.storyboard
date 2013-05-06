@@ -127,14 +127,6 @@
         <image name="btnSettings-Iphone@2x.png" width="541" height="104"/>
         <image name="btnSettingsActive-Iphone@2x.png" width="542" height="106"/>
     </resources>
-    <classes>
-        <class className="CCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
