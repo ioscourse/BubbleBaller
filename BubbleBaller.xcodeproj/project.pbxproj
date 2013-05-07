@@ -241,6 +241,12 @@
 		D3857374168D24000088D767 /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = D3857373168D24000088D767 /* GLES-Render.mm */; };
 		D385737E168D25160088D767 /* ball-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D385737C168D25160088D767 /* ball-hd.png */; };
 		D385737F168D25160088D767 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = D385737D168D25160088D767 /* ball.png */; };
+		DB18AC8217388D2300F5CD5F /* Stars1.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB18AC7F17388D2300F5CD5F /* Stars1.plist */; };
+		DB18AC8317388D2300F5CD5F /* Stars2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB18AC8017388D2300F5CD5F /* Stars2.plist */; };
+		DB18AC8417388D2300F5CD5F /* Stars3.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB18AC8117388D2300F5CD5F /* Stars3.plist */; };
+		DB18AC8817388D9100F5CD5F /* bubble1.png in Resources */ = {isa = PBXBuildFile; fileRef = DB18AC8517388D9100F5CD5F /* bubble1.png */; };
+		DB18AC8917388D9100F5CD5F /* bubble2.png in Resources */ = {isa = PBXBuildFile; fileRef = DB18AC8617388D9100F5CD5F /* bubble2.png */; };
+		DB18AC8A17388D9100F5CD5F /* bubble3.png in Resources */ = {isa = PBXBuildFile; fileRef = DB18AC8717388D9100F5CD5F /* bubble3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -673,6 +679,12 @@
 		D3857373168D24000088D767 /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		D385737C168D25160088D767 /* ball-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball-hd.png"; sourceTree = "<group>"; };
 		D385737D168D25160088D767 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		DB18AC7F17388D2300F5CD5F /* Stars1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stars1.plist; sourceTree = "<group>"; };
+		DB18AC8017388D2300F5CD5F /* Stars2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stars2.plist; sourceTree = "<group>"; };
+		DB18AC8117388D2300F5CD5F /* Stars3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Stars3.plist; sourceTree = "<group>"; };
+		DB18AC8517388D9100F5CD5F /* bubble1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble1.png; path = Resources/bubble1.png; sourceTree = "<group>"; };
+		DB18AC8617388D9100F5CD5F /* bubble2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble2.png; path = Resources/bubble2.png; sourceTree = "<group>"; };
+		DB18AC8717388D9100F5CD5F /* bubble3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble3.png; path = Resources/bubble3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -776,6 +788,10 @@
 		D3857150168D23FD0088D767 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DB18AC8517388D9100F5CD5F /* bubble1.png */,
+				DB18AC8617388D9100F5CD5F /* bubble2.png */,
+				DB18AC8717388D9100F5CD5F /* bubble3.png */,
+				DB18AC7E17388CF400F5CD5F /* BubbleGenerator */,
 				CA24856D1737633400AD07C7 /* btnReplay.png */,
 				CA24856E1737633400AD07C7 /* btnReplay@2x.png */,
 				CA248569173760EB00AD07C7 /* Home.png */,
@@ -1355,6 +1371,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DB18AC7E17388CF400F5CD5F /* BubbleGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				DB18AC7F17388D2300F5CD5F /* Stars1.plist */,
+				DB18AC8017388D2300F5CD5F /* Stars2.plist */,
+				DB18AC8117388D2300F5CD5F /* Stars3.plist */,
+			);
+			name = BubbleGenerator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1474,6 +1500,12 @@
 				CA24856C173760EB00AD07C7 /* Home@2x.png in Resources */,
 				CA24856F1737633400AD07C7 /* btnReplay.png in Resources */,
 				CA2485701737633400AD07C7 /* btnReplay@2x.png in Resources */,
+				DB18AC8217388D2300F5CD5F /* Stars1.plist in Resources */,
+				DB18AC8317388D2300F5CD5F /* Stars2.plist in Resources */,
+				DB18AC8417388D2300F5CD5F /* Stars3.plist in Resources */,
+				DB18AC8817388D9100F5CD5F /* bubble1.png in Resources */,
+				DB18AC8917388D9100F5CD5F /* bubble2.png in Resources */,
+				DB18AC8A17388D9100F5CD5F /* bubble3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

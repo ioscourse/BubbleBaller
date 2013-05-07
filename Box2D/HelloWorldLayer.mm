@@ -275,6 +275,16 @@
     b2Vec2 force = b2Vec2(2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
     [[SimpleAudioEngine sharedEngine] playEffect:@"Bubbles.aiff"];
+    //Bubble generator
+    NSArray *starsArray = [NSArray arrayWithObjects:@"Stars1.plist", @"Stars2.plist", @"Stars3.plist", nil];
+    for(NSString *stars in starsArray) {
+        CCParticleSystemQuad *starsEffect = [CCParticleSystemQuad particleWithFile:stars];
+        starsEffect.rotation=90;
+        starsEffect.position=ccp(200,200);
+        [self addChild:starsEffect z:1];
+        // 1) Add to bottom of init
+        
+    }
     //_body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 
@@ -284,6 +294,15 @@
     b2Vec2 force = b2Vec2(-2, 5);
     _body->ApplyLinearImpulse(force, _body->GetPosition());
     [[SimpleAudioEngine sharedEngine] playEffect:@"Bubbles.aiff"];
+    //Bubble generator
+    NSArray *starsArray = [NSArray arrayWithObjects:@"Stars1.plist", @"Stars2.plist", @"Stars3.plist", nil];
+    for(NSString *stars in starsArray) {
+        CCParticleSystemQuad *starsEffect = [CCParticleSystemQuad particleWithFile:stars];
+        starsEffect.rotation=90;
+        [self addChild:starsEffect z:1];
+        // 1) Add to bottom of init
+        
+    }
     // _body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
 

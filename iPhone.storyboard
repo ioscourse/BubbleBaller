@@ -90,14 +90,6 @@
         <image name="btnPlay-Iphone@2x.png" width="542" height="105"/>
         <image name="btnPlayActive@2x.png" width="542" height="105"/>
     </resources>
-    <classes>
-        <class className="CCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CCViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
