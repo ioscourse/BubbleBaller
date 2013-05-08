@@ -37,11 +37,11 @@
         CCMenuItem *replayMenuItem = [CCMenuItemImage
         itemFromNormalImage:@"btnReplay.png" selectedImage:@"btnReplay.png"
         target:self selector:@selector(replayButtonTapped:)];
-        replayMenuItem.position = ccp(((contentSize_.width/2)+1), winSize.height/3);
+        replayMenuItem.position = ccp(((contentSize_.width/2)+1), winSize.height/2.5);
        // basketRight.position = ccp(((contentSize_.width/2)+30), 300);
-        replayMenuItem.scaleX=.5;
-        replayMenuItem.scaleY=.5;
-        //replayMenuItem.scale = 0.5;
+//        replayMenuItem.scaleX=.5;
+//        replayMenuItem.scaleY=.5;
+        replayMenuItem.scale = 1;
         CCMenu *replayMenu = [CCMenu menuWithItems:replayMenuItem, nil];
         replayMenu.position = CGPointZero;
         [self addChild:replayMenu z:0];

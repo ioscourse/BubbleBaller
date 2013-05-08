@@ -281,7 +281,7 @@
         CCParticleSystemQuad *starsEffect = [CCParticleSystemQuad particleWithFile:stars];
         starsEffect.rotation=90;
         starsEffect.position=ccp(200,200);
-        [self addChild:starsEffect z:1];
+                [self addChild:starsEffect z:1];
         // 1) Add to bottom of init
         
     }

@@ -39,7 +39,7 @@
 	<key>gravityy</key>
 	<real>0</real>
 	<key>maxParticles</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>maxRadius</key>
 	<integer>100</integer>
 	<key>maxRadiusVariance</key>
@@ -71,21 +71,21 @@
 	<key>sourcePositionVariancey</key>
 	<integer>160</integer>
 	<key>sourcePositionx</key>
-	<integer>480</integer>
-	<key>sourcePositiony</key>
 	<integer>160</integer>
+	<key>sourcePositiony</key>
+	<integer>0</integer>
 	<key>speed</key>
 	<integer>500</integer>
 	<key>speedVariance</key>
 	<integer>0</integer>
 	<key>startColorAlpha</key>
-	<real>1</real>
+	<real>0.8</real>
 	<key>startColorBlue</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>startColorGreen</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>startColorRed</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>startColorVarianceAlpha</key>
 	<real>0</real>
 	<key>startColorVarianceBlue</key>
