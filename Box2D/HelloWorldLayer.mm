@@ -283,9 +283,13 @@
         starsEffect.position=ccp(200,200);
                 [self addChild:starsEffect z:1];
         // 1) Add to bottom of init
-        
     }
-    //_body2->ApplyLinearImpulse(force, _body2->GetPosition());
+    
+    
+     
+                        
+//                         [CCCallFuncN actionWithTarget:self selector:@selector(setInvisible:)],
+//                         nil;;
 }
 
 //Push Button Right for Jet

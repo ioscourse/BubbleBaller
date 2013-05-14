@@ -15,13 +15,13 @@
 	<key>emitterType</key>
 	<real>0</real>
 	<key>finishColorAlpha</key>
-	<integer>1</integer>
+	<real>0.8</real>
 	<key>finishColorBlue</key>
-	<real>1</real>
+	<integer>1</integer>
 	<key>finishColorGreen</key>
-	<real>1</real>
+	<integer>1</integer>
 	<key>finishColorRed</key>
-	<real>1</real>
+	<integer>1</integer>
 	<key>finishColorVarianceAlpha</key>
 	<real>0</real>
 	<key>finishColorVarianceBlue</key>
@@ -47,7 +47,7 @@
 	<key>minRadius</key>
 	<real>0</real>
 	<key>particleLifespan</key>
-	<real>2</real>
+	<integer>2</integer>
 	<key>particleLifespanVariance</key>
 	<real>0</real>
 	<key>radialAcceleration</key>
