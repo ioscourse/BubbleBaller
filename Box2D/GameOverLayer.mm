@@ -35,7 +35,7 @@
         
         // Create replay button
         CCMenuItem *replayMenuItem = [CCMenuItemImage
-        itemFromNormalImage:@"btnReplay.png" selectedImage:@"btnReplay.png"
+        itemWithNormalImage:@"btnReplay.png" selectedImage:@"btnReplay.png"
         target:self selector:@selector(replayButtonTapped:)];
         replayMenuItem.position = ccp(((contentSize_.width/2)+1), winSize.height/2.5);
        // basketRight.position = ccp(((contentSize_.width/2)+30), 300);
