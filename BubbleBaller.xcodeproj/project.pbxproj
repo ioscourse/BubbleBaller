@@ -17,7 +17,7 @@
 		CA3B66EF17320512009F65B8 /* CCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3B66EE17320512009F65B8 /* CCViewController.m */; };
 		CA3B66F117320810009F65B8 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA3B66F017320810009F65B8 /* iPhone.storyboard */; };
 		CA485CA5173314B000FB149D /* Basketball.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485CA4173314B000FB149D /* Basketball.png */; };
-		CA485CCE17332D5F00FB149D /* Background-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485CA617332D5C00FB149D /* Background-568h@2x.png */; };
+		CA485CCE17332D5F00FB149D /* Background-wide.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485CA617332D5C00FB149D /* Background-wide.png */; };
 		CA485CCF17332D5F00FB149D /* Background-Ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485CA717332D5C00FB149D /* Background-Ipad.png */; };
 		CA485CD017332D5F00FB149D /* Background-Ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485CA817332D5C00FB149D /* Background-Ipad@2x.png */; };
 		CA485CD117332D5F00FB149D /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = CA485CA917332D5C00FB149D /* Background.png */; };
@@ -261,7 +261,7 @@
 		CA3B66EE17320512009F65B8 /* CCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCViewController.m; sourceTree = "<group>"; };
 		CA3B66F017320810009F65B8 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		CA485CA4173314B000FB149D /* Basketball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Basketball.png; path = Resources/Basketball.png; sourceTree = "<group>"; };
-		CA485CA617332D5C00FB149D /* Background-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Background-568h@2x.png"; path = "Resources/Background-568h@2x.png"; sourceTree = "<group>"; };
+		CA485CA617332D5C00FB149D /* Background-wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Background-wide.png"; path = "Resources/Background-wide.png"; sourceTree = "<group>"; };
 		CA485CA717332D5C00FB149D /* Background-Ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Background-Ipad.png"; path = "Resources/Background-Ipad.png"; sourceTree = "<group>"; };
 		CA485CA817332D5C00FB149D /* Background-Ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Background-Ipad@2x.png"; path = "Resources/Background-Ipad@2x.png"; sourceTree = "<group>"; };
 		CA485CA917332D5C00FB149D /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Resources/Background.png; sourceTree = "<group>"; };
@@ -809,7 +809,7 @@
 				CA6108561733421400A96CF3 /* Basketball-hd.png */,
 				CA485CF617332EA100FB149D /* Default-Portrait.png */,
 				CA485CF717332EA200FB149D /* Default-Portrait@2x.png */,
-				CA485CA617332D5C00FB149D /* Background-568h@2x.png */,
+				CA485CA617332D5C00FB149D /* Background-wide.png */,
 				CA485CA717332D5C00FB149D /* Background-Ipad.png */,
 				CA485CA817332D5C00FB149D /* Background-Ipad@2x.png */,
 				CA485CA917332D5C00FB149D /* Background.png */,
@@ -1438,7 +1438,7 @@
 				D385737F168D25160088D767 /* ball.png in Resources */,
 				CA3B66F117320810009F65B8 /* iPhone.storyboard in Resources */,
 				CA485CA5173314B000FB149D /* Basketball.png in Resources */,
-				CA485CCE17332D5F00FB149D /* Background-568h@2x.png in Resources */,
+				CA485CCE17332D5F00FB149D /* Background-wide.png in Resources */,
 				CA485CCF17332D5F00FB149D /* Background-Ipad.png in Resources */,
 				CA485CD017332D5F00FB149D /* Background-Ipad@2x.png in Resources */,
 				CA485CD117332D5F00FB149D /* Background.png in Resources */,

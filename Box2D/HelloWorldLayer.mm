@@ -81,6 +81,7 @@
             [self addChild:toggleMenu z:0];
             
             //Background Image
+            
             CCSprite *background = [CCSprite spriteWithFile:@"Background.png"];
             background.position = ccp(winSize.width/2, winSize.height/2);
             [self addChild:background z:-1];
