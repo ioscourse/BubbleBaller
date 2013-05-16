@@ -315,14 +315,16 @@
 - (void)toggleTapped:(id)sender
 
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Paused" message:@"Press the button to..." delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game Paused" message:@"" delegate:self cancelButtonTitle:@"Resume" otherButtonTitles:nil];
     [alert show];
     [[CCDirector sharedDirector] pause];
+    [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
 	[[CCDirector sharedDirector] resume];
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
     
 }
 
@@ -345,6 +347,7 @@
     _basketBottom = NULL;
     _basketLeft = NULL;
     _basketRight = NULL;
+    [[SimpleAudioEngine sharedEngine]stopBackgroundMusic];
     [super dealloc];
 }
 
