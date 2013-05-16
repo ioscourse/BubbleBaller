@@ -12,13 +12,12 @@
     return scene;
     
 }
-
+   
 - (id)init {
     
     if ((self=[super init])) {
         
         CGSize winSize = [CCDirector sharedDirector].winSize;
-        
         //Create Walls Hoop & Buttons
         {
             // Create a world
@@ -269,7 +268,7 @@
     
 }
 
-
+ CGSize winSize = [CCDirector sharedDirector].winSize;
 //Push Button for Jet
 
 - (void)jetButtonTapped:(id)sender {
@@ -281,9 +280,9 @@
     for(NSString *stars in starsArray) {
         CCParticleSystemQuad *starsEffect = [CCParticleSystemQuad particleWithFile:stars];
         starsEffect.rotation=90;
-        starsEffect.position=ccp(200,200);
-                [self addChild:starsEffect z:1];
-        // 1) Add to bottom of init
+        starsEffect.position=ccp(10,0);
+        [self addChild:starsEffect z:1];
+        
     }
     
     
@@ -304,9 +303,9 @@
     for(NSString *stars in starsArray) {
         CCParticleSystemQuad *starsEffect = [CCParticleSystemQuad particleWithFile:stars];
         starsEffect.rotation=90;
+        starsEffect.position=ccp(contentSize_.width-10,0);
         [self addChild:starsEffect z:1];
-        // 1) Add to bottom of init
-        
+       
     }
     // _body2->ApplyLinearImpulse(force, _body2->GetPosition());
 }
@@ -346,7 +345,6 @@
     _basketBottom = NULL;
     _basketLeft = NULL;
     _basketRight = NULL;
-    
     [super dealloc];
 }
 
