@@ -51,7 +51,7 @@
             
             // Standard method to create a button (left)
             CCMenuItem *jetMenuItem = [CCMenuItemImage
-                                       itemWithNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
+                                       itemWithNormalImage:@"btnLeft.png" selectedImage:@"btnLeftActive.png"
                                        target:self selector:@selector(jetButtonTapped:)];
             jetMenuItem.position = ccp(40, 40);
             jetMenuItem.scale = 0.5;
@@ -61,7 +61,7 @@
             
             // Standard method to create a button (right)
             CCMenuItem *jetRightMenuItem = [CCMenuItemImage
-                                            itemWithNormalImage:@"btnCircle.png" selectedImage:@"btnCircleActive.png"
+                                            itemWithNormalImage:@"btnRight.png" selectedImage:@"btnRightActive.png"
                                             target:self selector:@selector(jetRightButtonTapped:)];
             jetRightMenuItem.position = ccp(winSize.width -40, 40);
             jetRightMenuItem.scale = 0.5;
